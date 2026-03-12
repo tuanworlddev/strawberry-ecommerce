@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: strawberry-postgres
+    environment:
+      POSTGRES_USER: strawberry_user
+      POSTGRES_PASSWORD: strawberry_password
+      POSTGRES_DB: strawberry_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strawberry_user -d strawberry_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: strawberry-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: strawberry_mq
+      RABBITMQ_DEFAULT_PASS: strawberry_mq_password
+    ports:
+      - "5672:5672"   # AMQP protocol port
+      - "15672:15672" # Management UI port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
