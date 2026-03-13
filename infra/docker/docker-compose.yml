@@ -14,7 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U strawberry_user -d strawberry_db"]
+      test: [ "CMD-SHELL", "pg_isready -U strawberry_user -d strawberry_db" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -26,13 +26,13 @@ services:
       RABBITMQ_DEFAULT_USER: strawberry_mq
       RABBITMQ_DEFAULT_PASS: strawberry_mq_password
     ports:
-      - "5672:5672"   # AMQP protocol port
-      - "15672:15672" # Management UI port
+      - "5672:5672"
+      - "15672:15672"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     restart: unless-stopped
     healthcheck:
-      test: rabbitmq-diagnostics -q ping
+      test: [ "CMD-SHELL", "rabbitmq-diagnostics -q ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
