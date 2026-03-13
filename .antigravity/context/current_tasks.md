@@ -33,3 +33,18 @@
 - [x] Implement shop creation APIs
 - [x] Implement Wildberries API key storage (encrypted)
 - [x] Implement sync job creation + RabbitMQ publishing
+
+# Phase 1 Runtime Validation
+
+- [ ] Ensure Docker (or native PostgreSQL/RabbitMQ) is running
+- [ ] Application starts and Flyway executes
+- [ ] Verify Endpoints (Registration, Login, Admin Approval)
+- [ ] Verify Shop & WB Integration endpoints
+- [ ] Verify Sync publishing and RabbitMQ queue
+
+# Phase 2 Planning
+
+- [ ] Prepare Frontend shell/workspace setup
+- [ ] Prepare Phase 2 planning artifacts
+- [ ] Prepare product domain contracts
+- [ ] Prepare catalog sync persistence verification plan

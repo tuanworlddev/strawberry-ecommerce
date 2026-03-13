@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:16
+    image: postgres:18
     container_name: strawberry-postgres
     environment:
       POSTGRES_USER: strawberry_user
@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U strawberry_user -d strawberry_db"]
@@ -20,7 +20,7 @@ services:
       retries: 5
 
   rabbitmq:
-    image: rabbitmq:3.13-management
+    image: rabbitmq:4.2-management
     container_name: strawberry-rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: strawberry_mq
