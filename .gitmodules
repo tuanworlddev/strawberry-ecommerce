@@ -1,0 +1,7 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/tuanworlddev/strawberry-backend.git
+
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/tuanworlddev/strawberry-frontend.git
