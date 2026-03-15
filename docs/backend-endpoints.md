@@ -1,6 +1,10 @@
 # Backend API Specification
 
-This document lists all active backend endpoints for the Strawberry E-commerce platform.
+Archived reference only.
+The live source of truth is the backend code under `backend/src/main/java`.
+This document may lag behind recent contract changes and should not be used to implement frontend/backend integrations without verifying the current controllers and DTOs first.
+
+This document lists historical backend endpoints for the Strawberry E-commerce platform.
 
 ## Base URL
 `http://localhost:8080/api/v1`
