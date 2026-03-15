@@ -15,6 +15,21 @@ Strawberry is a full-stack multi-shop e-commerce platform with:
 - [`infra`](./infra): Docker Compose setup for local orchestration
 - [`docs`](./docs): deployment and architecture notes
 
+## Clone the Project
+
+This repository uses Git submodules for `backend/` and `frontend/`, so clone it with recursive submodule checkout:
+
+```bash
+git clone --recurse-submodules https://github.com/your-org/strawberry-ecommerce.git
+cd strawberry-ecommerce
+```
+
+If you already cloned the repository without submodules, run:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Quick Start With Docker
 
 1. Copy the environment template:
